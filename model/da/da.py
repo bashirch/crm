@@ -29,7 +29,7 @@ class DataAccess:
         session.commit()
         session.refresh(entity)
         return entity
-
+    #todo برای پاک کردن ارور میزنه از دیتا بیس
     def remove(self, entity):
         session.delete(entity)
         session.commit()

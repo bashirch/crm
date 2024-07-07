@@ -41,10 +41,6 @@ class ClientService:
         client_da = DataAccess(Client)
         return client_da.find_by_date_time(date_time)
 
-
-
-
-
     @staticmethod
     def find_by_serial(serial):
         client_da = DataAccess(Client)
