@@ -8,7 +8,7 @@ if not database_exists(connection_string):
     create_database(connection_string)
 
 engine = create_engine(connection_string)
-Base.metadata.create_all(engine)
+Base.metadata.create_all(bind=engine)
 
 Session = sessionmaker(bind=engine)
 session = Session()

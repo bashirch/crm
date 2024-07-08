@@ -7,6 +7,7 @@ class ClientService:
     @staticmethod
     def save(client):
         client_da = DataAccess(Client)
+
         client_da.save(client)
 
     @staticmethod

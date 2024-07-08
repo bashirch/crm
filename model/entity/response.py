@@ -1,10 +1,10 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime
-from model.entity.base import Base
+from model.entity import *
 from model.tools.validator import *
 
 
-class Respanse(Base):
-    __tablename__ = "respanse_tbl"
+class Response(Base):
+    __tablename__ = "response_tbl"
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
     _name = Column("name", String(30))
     _description = Column("description", String(100))

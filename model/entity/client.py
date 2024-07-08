@@ -1,26 +1,24 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime
-from model.entity.base import Base
+from model.entity import *
 from model.tools.validator import *
 
 
 class Client(Base):
     __tablename__ = "client_tbl"
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
-    _client_name = Column("client_name", String(30))
-    _client_family = Column("client_family", String(30))
-    _client_city = Column("client_city", String(30))
-    _client_phone = Column("client_phone", Integer)
-    _client_calling_time = Column("client_calling_time", DateTime)
+    _client_name = Column("name", String(30))
+    _client_family = Column("family", String(30))
+    _client_city = Column("city", String(30))
+    _client_phone = Column("phone", Integer)
     _status = Column("status", Boolean, default=True)
     _deleted = Column("deleted", Boolean, default=False)
 
-    def __init__(self, client_name, client_family, client_city, client_phone, client_calling_time):
+    def __init__(self, client_name, client_family, client_city, client_phone):
         self._id = None
         self._client_name = client_name
         self._client_family = client_family
         self._client_city = client_city
         self._client_phone = client_phone
-        self._client_calling_time = client_calling_time
         self._status = True
         self._deleted = False
 

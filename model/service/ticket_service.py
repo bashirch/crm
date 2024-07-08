@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from controller.exceptions.exeptions import ticketReportNotFoundError
 from model.da.da import DataAccess
 from model.entity import ticket
@@ -7,6 +9,7 @@ class TicketService:
     @staticmethod
     def save(ticket):
         ticket_da = DataAccess(ticket)
+        ticket._ticket_date_time = datetime.now()
         ticket_da.save(ticket)
 
     @staticmethod
