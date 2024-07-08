@@ -6,17 +6,17 @@ from model.tools.validator import *
 class Client(Base):
     __tablename__ = "client_tbl"
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
-    _client_name = Column("name", String(30))
-    _client_family = Column("family", String(30))
-    _client_city = Column("city", String(30))
-    _client_phone = Column("phone", Integer)
+    _name = Column("name", String(30))
+    _family = Column("family", String(30))
+    _city = Column("city", String(30))
+    _phone = Column("phone", Integer)
     _status = Column("status", Boolean, default=True)
     _deleted = Column("deleted", Boolean, default=False)
 
     def __init__(self, client_name, client_family, client_city, client_phone):
         self._id = None
-        self._client_name = client_name
-        self._client_family = client_family
+        self._name = client_name
+        self._family = client_family
         self._client_city = client_city
         self._client_phone = client_phone
         self._status = True
