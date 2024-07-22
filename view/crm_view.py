@@ -5,7 +5,7 @@ from controller.client_controller import ClientController
 from view.component.label_text import TextWithLabel
 
 
-class CustomerView:
+class ClientView:
     def reset_form(self):
         status, customer_list = ClientController.find_all()
         if status:
@@ -20,7 +20,7 @@ class CustomerView:
             self.reset_form()
         elif result.startswith("Error"):
             msg.showerror("Error", result)
-
+    #todo  کپی کردم اما بازم اجرا نمیشه ،اونی هم که نوشتید برای تست ادامه میدادم یه خط کد مینوشتم دیگه باز نمیکرد
     def __init__(self):
         self.win = Tk()
         self.win.title("Customer View")

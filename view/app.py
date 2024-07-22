@@ -1,5 +1,5 @@
-from view.crm_view import CrmView
+from view.crm_view import ClientView
 
-ui = CrmView
+ui = ClientView
 
 
