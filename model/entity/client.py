@@ -59,7 +59,7 @@ class Client(Base):
     @property
     def phone(self):
         return self._phone
-
+    #todo
     @phone.setter
     @pattern_validator(r"^/d{9}$", "Invalid Phone Number")
     def phone(self, phone):
