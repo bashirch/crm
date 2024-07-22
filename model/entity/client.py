@@ -33,6 +33,7 @@ class Client(Base):
     @property
     def name(self):
         return self._name
+    #todo
 
     @name.setter
     @pattern_validator(r"^[A-Za-z]{3-30}$", "Invalid Client Name")
@@ -42,6 +43,7 @@ class Client(Base):
     @property
     def family(self):
         return self._family
+    #todo
 
     @family.setter
     @pattern_validator(r"^[A-Za-z]{3-30}$", "Invalid Client Family")
