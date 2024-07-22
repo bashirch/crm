@@ -6,7 +6,7 @@ class TicketReportNotFoundError(Exception):
     def __init__(self, *args):
         super().__init__("Ticket Not Found !!!")
 
-class RespanseReportNotFoundError(Exception):
+class ResponseReportNotFoundError(Exception):
     def __init__(self, *args):
-        super().__init__("Respanse Not Found !!!")
+        super().__init__("Response Not Found !!!")
 

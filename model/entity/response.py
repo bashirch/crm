@@ -10,20 +10,21 @@ class Response(Base):
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
     _name = Column("name", String(30))
     _description = Column("description", String(100))
-    _Response_date_time = Column("Response_date_time", DateTime)
+    _response_date_time = Column("response_date_time", DateTime)
     _status = Column("status", Boolean, default=False)
     _deleted = Column("deleted", Boolean, default=False)
 
-    def __init__(self, name, description, status, deleted):
-        self._id = id
-        self._name = None
+    _owner_id = Column(Integer, ForeignKey("ticket_tbl.id") )
+    owner = relationship("Ticket")
+
+    def __init__(self, name, description, status, deleted=False):
+        self._id = None
+        self._name = name
         self._description = description
-        self._Response_date_time = None
+        self._response_date_time = None
         self._status = status
         self._deleted = deleted
 
-    owner_id = Column(Integer, ForeignKey("ticket_tbl.id") )
-    owner = relationship("Ticket")
 
     @property
     def id(self):
@@ -51,13 +52,13 @@ class Response(Base):
         self._description = description
 
     @property
-    def Response_date_time(self):
-        return self._Response_date_time
+    def response_date_time(self):
+        return self._response_date_time
 
-    @Response_date_time.setter
+    @response_date_time.setter
     @date_time_validator
-    def Response_date_time(self, Response_date_time):
-        self._Response_date_time = Response_date_time
+    def Response_date_time(self, response_date_time):
+        self._response_date_time = response_date_time
 
     @property
     def status(self):

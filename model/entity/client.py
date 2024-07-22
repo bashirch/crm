@@ -9,7 +9,7 @@ class Client(Base):
     _name = Column("name", String(30))
     _family = Column("family", String(30))
     _city = Column("city", String(30))
-    _phone = Column("phone", Integer)
+    _phone = Column("phone", String(30))
     _status = Column("status", Boolean, default=True)
     _deleted = Column("deleted", Boolean, default=False)
 
@@ -35,7 +35,7 @@ class Client(Base):
         return self._name
 
     @name.setter
-    @pattern_validator(r"^[A-Za-z]+$", "Invalid Client Name")
+    @pattern_validator(r"^[A-Za-z]{3-30}$", "Invalid Client Name")
     def name(self, name):
         self._name = name
 
@@ -44,7 +44,7 @@ class Client(Base):
         return self._family
 
     @family.setter
-    @pattern_validator(r"^[A-Za-z]+$", "Invalid Client Family")
+    @pattern_validator(r"^[A-Za-z]{3-30}$", "Invalid Client Family")
     def family(self, family):
         self._family = family
 
@@ -61,7 +61,7 @@ class Client(Base):
         return self._phone
 
     @phone.setter
-    @pattern_validator(r"^(+98 | 09)/d{9}}+$", "Invalid Phone Number")
+    @pattern_validator(r"^/d{9}$", "Invalid Phone Number")
     def phone(self, phone):
         self._phone = phone
 

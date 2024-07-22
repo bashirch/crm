@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from controller.exceptions.exeptions import ticketReportNotFoundError
+from controller.exceptions.exeptions import TicketReportNotFoundError
 from model.da.da import DataAccess
 from model.entity import ticket
 

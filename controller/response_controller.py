@@ -1,25 +1,25 @@
-from model.service.respanse_service import RespanseService
+from model.service.respanse_service import ResponseService
 from model.tools.logger import Logger
 
 
-class RespanseController:
+class ResponseController:
     @staticmethod
-    def save(respanse):
+    def save(response):
         try:
-            RespanseService.save(respanse)
-            Logger.info(f"Respanse Saved - {respanse}")
-            return True, respanse
+            ResponseService.save(response)
+            Logger.info(f"Response Saved - {response}")
+            return True, response
         except Exception as e:
             Logger.error(f"{e}")
             return False, f"{e}"
 
     @staticmethod
-    def edit(respanse):
+    def edit(response):
         try:
-            if RespanseService.find_by_id(respanse.id):
-                RespanseService.edit(respanse)
-                Logger.info(f"Respanse Edited - {respanse}")
-                return respanse
+            if ResponseService.find_by_id(response.id):
+                ResponseService.edit(response)
+                Logger.info(f"Response Edited - {response}")
+                return response
             else:
                 pass
         except Exception as e:
@@ -29,9 +29,9 @@ class RespanseController:
     @staticmethod
     def remove(id):
         try:
-            respanse = RespanseService.remove(id)
-            Logger.info(f"Respanse Removed - {respanse}")
-            return True, respanse
+            response = ResponseService.remove(id)
+            Logger.info(f"response Removed - {response}")
+            return True, response
 
         except Exception as e:
             Logger.error(f"{e}")
@@ -40,9 +40,9 @@ class RespanseController:
     @staticmethod
     def find_all():
         try:
-            respanse_list = RespanseService.find_all()
-            Logger.info(f"Respanse Find All()")
-            return True, respanse_list
+            response_list = ResponseService.find_all()
+            Logger.info(f"Response Find All()")
+            return True, response_list
         except Exception as e:
             Logger.error(f"{e}")
             return False, f"{e}"
@@ -50,9 +50,9 @@ class RespanseController:
     @staticmethod
     def find_by_id(id):
         try:
-            respanse = RespanseService.find_by_id(id)
-            Logger.info(f"Respanse Find By Id({id})")
-            return True, respanse
+            response = ResponseService.find_by_id(id)
+            Logger.info(f"Response Find By Id({id})")
+            return True, response
         except Exception as e:
             Logger.error(f"{e}")
             return False, f"{e}"
@@ -60,7 +60,7 @@ class RespanseController:
     @staticmethod
     def find_by_date_time(date_time):
         try:
-            return RespanseService.find_by_date_time(date_time)
+            return ResponseService.find_by_date_time(date_time)
         except Exception as e:
             Logger.error(f"{e}")
             return False, f"{e}"
